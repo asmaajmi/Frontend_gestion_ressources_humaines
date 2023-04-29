@@ -1,0 +1,101 @@
+<app-navbar-sidebar></app-navbar-sidebar>
+<div class="container2">
+    <div class="main1">
+        <!--cards-->
+        <div class="cards">
+            <div class="card" id="c1">
+                <div class="card-content">
+                    <div class="number">67</div>
+                    <div class="card-name">Nbr des employes</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+            <div class="card" id="c2">
+                <div class="card-content">
+                    <div class="number">105</div>
+                    <div class="card-name">Nbr des services</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-gears"></i>
+                </div>
+            </div>
+            <div class="card" id="c3">
+                <div class="card-content">
+                    <div class="number">8</div>
+                    <div class="card-name">Nbr des bureaux</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-city"></i>
+                </div>
+            </div>
+            <div class="card" id="c4">
+                <div class="card-content">
+                    <div class="number">29</div>
+                    <div class="card-name">Nbr des directeurs</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+            </div>
+        </div>
+        <!--Liste des Employés-->
+        <div class="titresearch">
+            <div class="">
+                <h1>Liste des Heures supplémentaires</h1>
+            </div>
+            <div class="colemp">
+                <a routerLink="/createHeureSupp" id="addempbtn" class="btn" data-toggle="modal"><i class="fas fa-plus-circle" id="icon"></i> <span>Heure supplementaire à effectuer</span></a>
+                <a id="addempbtn" class="btn" data-toggle="modal"><i class="fas fa-plus-circle" id="icon"></i> <span>Heure supplementaire effectué</span></a>
+
+            </div>
+
+
+        </div>
+        <div class="ListeEmploye" id="pdfTable" #pdfTable>
+            <div class="liste">
+                <table class="liste">
+                    <thead>
+
+                        <th>Nom et prénom</th>
+                        <th>Date heure supplementaire</th>
+                        <th>Heure debut</th>
+                        <th>Heure fin</th>
+                        <th>Prix</th>
+                        <th>Validation</th>
+                        <th>Actions</th>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let h of HeureSupp|paginate: {itemsPerPage:4,currentPage:page} let i=index ">
+                            <td>{{employe[i].prenom_emp}} {{employe[i].nom_emp}}</td>
+                            <td>{{h.dt_heure_supp}}</td>
+                            <td>{{h.hr_debut}}</td>
+                            <td>{{h.hr_fin}}</td>
+                            <td>{{h.prix}}</td>
+                            <td [ngStyle]="{color:'#F28838'}" *ngIf="h.validation == 'En Attente'; else NonValide" class="val">
+                                {{h.validation}}
+                            </td>
+                            <td>
+                                <a routerLink="/validerHeureSupp/{{h.id}}" class="btn edit"><i class="fas fa-file-check"></i></a>
+                                <a class="btn delete"><i  class="fas fa-trash"></i></a>
+                            </td>
+                            <ng-template #NonValide>
+                                <td [ngStyle]="{color:'#F22838'}" *ngIf="h.validation == 'NonValidé' else valide " class="val">Non Validé</td>
+                            </ng-template>
+                            <ng-template #valide>
+                                <td [ngStyle]="{color:'#509945'}" *ngIf="h.validation == 'Validé'" class="val">Validé</td>
+                            </ng-template>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="pagination">
+                <pagination-controls (pageChange)="page=$event" class="mypage"></pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</div>

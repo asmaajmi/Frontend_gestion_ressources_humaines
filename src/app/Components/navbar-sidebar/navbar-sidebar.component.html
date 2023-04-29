@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="navbar-sidebar.component.css">
+    <!--<link rel="stylesheet" href="../employes/employes.component.css">
+    <link rel="stylesheet" href="../create-employes/create-employes.component.css">-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar ">
+            <div class="logo-details">
+                <section class="home-section">
+                    <div class="home-content">
+                        <i class='fas fa-bars'></i>
+                    </div>
+                </section>
+                <span class="logo_name">InnovGate</span>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">
+                        <i class='fas fa-home'></i>
+                        <span class="link_name">Accueil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='fas fa-sms'></i>
+                        <span class="link_name">Messagerie</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a routerLink="/index">
+                            <i class='fas fa-users'></i>
+                            <span class="link_name">Employés</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='fas fa-hand-point-up'></i>
+                            <span class="link_name">Pointages</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='fas fa-calendar'></i>
+                            <span class="link_name">Congés</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='fas fa-tools'></i>
+                            <span class="link_name">Services</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a routerLink="/heuresupp">
+                        <i class='fas fa-clock'></i>
+                        <span class="link_name">Heure supplémentaire</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='fas fa-calendar-day'></i>
+                            <span class="link_name">Jour feriés</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='fas fa-wallet'></i>
+                            <span class="link_name">Paiement</span>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class='fas fa-info'></i>
+                        <span class="link_name">Aider</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='fas fa-cogs'></i>
+                        <span class="link_name">Configuration</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!---main-->
+        <div class="main">
+            <!--topbar-->
+            <div class="top-bar">
+                <div class="search">
+                    <input type="text" name="search" placeholder="search here">
+                    <label for="search"><i class="fas fa-search"></i></label>
+                </div>
+
+                <div class="profil-area">
+                    <div class="theme-btn">
+                        <span class="fas fa-sun active"></span>
+                        <span class="fas fa-moon"></span>
+                    </div>
+                    <div class="profil" *ngIf="userService.isLoggedIn()">
+                        <div class="profile-photo">
+                            <img src="../../assets/images/user.png" alt="user">
+                        </div>
+                        <h5>Asma Ajmi</h5>
+                        <i class="fas fa-bell"></i>
+                        <button mat-raised-button color="warn" (click)="logout()" class="btnLogout"><i class='fas fa-unlock'></i>
+                            Déconnexion</button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

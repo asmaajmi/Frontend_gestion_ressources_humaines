@@ -1,0 +1,61 @@
+<app-navbar-sidebar></app-navbar-sidebar>
+<div class="container2">
+    <div class="main1">
+        <div class="titresearch">
+            <h1>Tous les Informations de l'employe <span class="nom">"{{emp.prenom_emp}} {{emp.nom_emp}} "</span></h1>
+            <img class="image" width="400px" height="350px" src="../../../assets/images/asma.jpg" alt=".........">
+            <table class="tab1">
+                <thead>
+                    <th>Nom&Prènom</th>
+                    <th>Date de naissance</th>
+                    <th>Telephone</th>
+                    <th>Mobile</th>
+                    <th>Etat civil</th>
+
+                </thead>
+                <tbody>
+                    <td>{{emp.prenom_emp}} {{emp.nom_emp}}</td>
+                    <td>{{emp.date_naissance_emp}}</td>
+                    <td>{{emp.tel1_emp}}/{{emp.tel2_emp}}</td>
+                    <td>{{emp.mob1_emp}}/{{emp.mob2_emp}}</td>
+                    <td>{{emp.etat_civil_emp}}</td>
+
+                </tbody>
+            </table>
+            <table class="tab2">
+                <thead>
+                    <th>Date recrutement</th>
+                    <th>salaire de base de l'employe</th>
+                    <th>Role</th>
+                    <th>Congés maladies</th>
+                    <th>Congés accidentels</th>
+
+
+                </thead>
+                <tbody>
+                    <td>{{emp.date_recrutement_emp}}</td>
+                    <td>{{emp.salaire_base_emp}} DT</td>
+                    <td>{{emp.role_emp}}</td>
+                    <td>{{emp.seuil_conge_maladie}}</td>
+                    <td>{{emp.seuil_conge_accidentel}}</td>
+                </tbody>
+            </table>
+            <table class="tab2">
+                <thead>
+                    <th>Congés annuel</th>
+                    <th>Niveau</th>
+                    <th>Ecole</th>
+                    <th>date obtention</th>
+
+                </thead>
+                <tbody>
+                    <td>{{emp.seuil_conge_annuel}}</td>
+                    <td>{{emp.niveau}}</td>
+                    <td>{{emp.ecole}}</td>
+                    <td>{{emp.dt_obtention}}</td>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

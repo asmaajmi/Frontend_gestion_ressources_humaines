@@ -1,0 +1,105 @@
+<app-navbar-sidebar></app-navbar-sidebar>
+<div class="container2">
+    <div class="main1">
+        <!--cards-->
+        <div class="cards">
+            <div class="card" id="c1">
+                <div class="card-content">
+                    <div class="number">67</div>
+                    <div class="card-name">Nbr des employes</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+            <div class="card" id="c2">
+                <div class="card-content">
+                    <div class="number">105</div>
+                    <div class="card-name">Nbr des services</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-gears"></i>
+                </div>
+            </div>
+            <div class="card" id="c3">
+                <div class="card-content">
+                    <div class="number">8</div>
+                    <div class="card-name">Nbr des bureaux</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-city"></i>
+                </div>
+            </div>
+            <div class="card" id="c4">
+                <div class="card-content">
+                    <div class="number">29</div>
+                    <div class="card-name">Nbr des directeurs</div>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+            </div>
+        </div>
+        <!--Liste des Employés-->
+        <div class="titresearch">
+            <div class="">
+                <h1>Liste des Employés</h1>
+            </div>
+            <div class="search">
+                <input type="text" name="search" [(ngModel)]="text" placeholder="search here">
+                <label for="search"><i class="fas fa-search"></i></label>
+            </div>
+            <div class="colemp">
+                <a routerLink="/employe" id="addempbtn" class="btn" data-toggle="modal"><i class="fas fa-plus-circle" id="icon"></i> <span>Ajouter Un Employé</span></a>
+                <button (click)="downloadAsPDF()" id="pdfExport"><i class="fas fa-download" id="icon"></i> Exporter en PDF</button>
+
+            </div>
+
+
+        </div>
+        <div class="ListeEmploye">
+            <div class="liste" id="pdfTable" #pdfTable>
+                <table class="liste">
+                    <thead>
+                        <th scope="col "><span class="custom-checkbox">
+                        <label for="selectAll">#</label>
+                    </span></th>
+                        <th>CIN</th>
+                        <th>Nom et prénom</th>
+                        <th>Date de naissance</th>
+                        <th>Télèphone</th>
+                        <th>Rôle</th>
+                        <th>Date Recrutement</th>
+                        <th>Actions</th>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of tabEmployesf|sortByName|paginate: {itemsPerPage:4,currentPage:page}">
+                            <th><span class="custom-checkbox">
+                            <input type="checkbox" name="option[]" value="1">
+                            <label for="$loop->index+ 1"></label>
+                            </span>
+                            </th>
+                            <td>{{e.cin_emp}}</td>
+                            <td>{{e.prenom_emp}} {{e.nom_emp}}</td>
+                            <td>{{e.date_naissance_emp}}</td>
+                            <td>{{e.tel1_emp}}</td>
+                            <td>{{e.role_emp}}</td>
+                            <td>{{e.date_recrutement_emp}}</td>
+                            <td>
+                                <a routerLink="/editEmp/{{e.id}}" class="btn edit"><i  class="fas fa-marker"></i></a>
+                                <a (click)="supprimerProduit(e)" class="btn delete"><i  class="fas fa-trash"></i></a>
+                                <button mat-button (click)="openDialog(e.id)" class="btn info"><i  class="fas fa-info"></i></button>
+                                <a routerLink="/InfoEmp/{{e.id}}" class="btn fiche"><i  class="fas fa-file"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <pagination-controls (pageChange)="page=$event" class="mypage"></pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</div>

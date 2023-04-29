@@ -1,0 +1,100 @@
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="create-heure-supp-aeff.component.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<!--Ajouter un employé-->
+<app-navbar-sidebar></app-navbar-sidebar>
+<div class="main1">
+    <div class="titresearch">
+        <h1>Ajouter un heure supplémentaire à effectuer</h1>
+    </div>
+    <div class="tables">
+
+        <!-- début le formulaire de création d'employe -->
+        <form #f="ngForm" (ngSubmit)="save(f)">
+            <div class="ajoutHeureSupp">
+                <table class="table1">
+                    <tr class="line">
+                        <!-- le champ pour l'identifiant de l'employe -->
+                        <td>
+                            <h3 class="line1">Nom Employe<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <select ngModel name="id_emp" id="id_emp" class="form-control" required #id_emp="ngModel" [ngClass]="{'is-invalid':!id_emp.valid && id_emp.touched}">
+									<option selected hidden [ngValue]="">Sélectionner un employé</option>
+									<option  *ngFor="let e of tabEmployes" [ngValue]="e.id">{{e.prenom_emp}} {{e.nom_emp}}</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- le champ pour cin de l'employe -->
+                            <h3 class="line2">Date Heure Supplémentaire<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="date" class="form-control" id="dt_heure_supp" ngModel name="dt_heure_supp" required #dt_heure_supp="ngModel" [ngClass]="{'is-invalid':!dt_heure_supp.valid && dt_heure_supp.touched}">
+                                <label><i class="fas fa-id-card"></i></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="line">
+                        <td>
+                            <!-- le champ pour nom de l'employe -->
+                            <h3 class="line1">Heure début<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="time" class="form-control" ngModel name="hr_debut" id="nom" required #hr_debut="ngModel" [ngClass]="{'is-invalid':!hr_debut.valid && hr_debut.touched}">
+                                <label id="icone1"><i class="fas fa-clock"></i></label>
+                            </div>
+                        </td>
+
+                        <td>
+                            <!-- le champ pour prénom de l'employe -->
+                            <h3 class="line2">Heure fin<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="time" class="form-control" ngModel name="hr_fin" id="hr_fin" required #hr_fin="ngModel" [ngClass]="{'is-invalid':!hr_fin.valid && hr_fin.touched}">
+                                <label><i class="fas fa-clock"></i></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="line">
+                        <td>
+                            <!-- le champ pour date de naissance de l'employe -->
+                            <h3 class="line1">Prix<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="number" class="form-control" ngModel name="prix" id="prix" required #prix="ngModel" [ngClass]="{'is-invalid':!prix.valid && prix.touched}">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                </table>
+                <div class="btnconfannuler">
+                    <button class="button-82-pushable" type="submit" id="btnc">
+                            <span class="button-82-shadow"></span>
+                            <!--<span class="button-82-edgec"></span>-->
+                            <span class="button-82-frontc text ">
+                                <span class="fa fa-solid fa-plus"></span>
+                            Ajouter
+                            </span>
+                    </button>
+
+                    <a href="" class="btnannuler" id="btna">
+                        <span class="button-annuler-82-shadow"></span>
+                        <span class="button-82-edgea"></span>
+                        <span class="button-82-fronta text ">
+                                <span class="fa fa-solid fa-ban"></span> Annuler
+                        </span>
+                    </a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

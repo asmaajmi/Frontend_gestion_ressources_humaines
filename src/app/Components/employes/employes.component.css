@@ -1,0 +1,295 @@
+/*cards*/
+
+:host {
+    --color-white: #fff;
+    --color-light: #f5f5f5;
+    --color-black: #131316;
+    --color-gray-light: #a7a4af;
+    --color-gray-dark: #717177;
+    --color-dark: #393a44;
+    --color-blue: #97a5b4;
+    --color-blue-light: rgb(255, 255, 255);
+    --color-orange-light: rgb(255, 255, 255);
+    --color-pink-light: rgb(255, 255, 255);
+    --color-purple-light: rgba(255, 255, 255, 0.993);
+    --color-bk-blue-light: #dbbe3ad2;
+    --color-bk-orange-light: #5bada0e8;
+    --color-bk-pink-light: rgba(194, 87, 87, 0.863);
+    --color-bk-purple-light: rgba(83, 76, 122, 0.89);
+    --color-sky-blue: #63b4f4;
+    --color-h1: #4e8ec0;
+    --invert0: 0;
+}
+
+.cards {
+    margin-top: 60px;
+    width: 100%;
+    padding: 35px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+#c1 {
+    background-color: var(--color-bk-blue-light);
+    color: var(--color-blue-light);
+}
+
+#c3 {
+    background-color: var(--color-bk-pink-light);
+    color: var(--color-orange-light);
+}
+
+#c2 {
+    background-color: var(--color-bk-purple-light);
+    color: var(--color-pink-light);
+}
+
+#c4 {
+    background-color: var(--color-bk-orange-light);
+    color: var(--color-purple-light);
+}
+
+.cards .card {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    height: 120px;
+}
+
+.card-content {
+    margin-left: -130px;
+}
+
+.number {
+    font-size: 35px;
+    font-weight: 500;
+    font-weight: bold;
+}
+
+.card-name {
+    font-weight: 600;
+}
+
+.icon-box i {
+    font-size: 45px;
+    margin-top: -30px;
+    margin-left: 200px;
+}
+
+.icon-box {
+    margin-top: -30px;
+}
+
+
+/*ajout_liste*/
+
+td {
+    padding: 9px 5px;
+}
+
+
+/*liste de clients*/
+
+
+/*Titre search*/
+
+.titresearch {
+    height: 70px;
+    width: calc(100% -40px);
+    margin: 0 20px 20px 20px;
+    padding-top: 10px;
+    background: var(--color-white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr 1fr;
+    grid-gap: 20px;
+}
+
+.titresearch h1 {
+    padding-left: 15px;
+    color: rgba(37, 32, 68, 0.993);
+}
+
+.titresearch .search {
+    margin-top: 5px;
+    position: relative;
+    max-width: 400px;
+}
+
+.search input {
+    width: 100%;
+    min-width: 128px;
+    height: 40px;
+    padding: 0 40px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background: #f5f5f5;
+}
+
+.titresearch .search i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+
+/* Tableau d'employe*/
+
+.ListeEmploye {
+    width: calc(100% - 40px);
+    min-height: 400px;
+    margin: 0 20px 20px 20px;
+    background: var(--color-white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.colemp {
+    margin-left: 20px;
+    margin-top: 5px;
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+
+#icon {
+    padding-right: 8px;
+}
+
+#pdfExport {
+    background: #535e5b;
+    color: white;
+    height: 40px;
+    padding-top: 5px;
+    font-size: 17px;
+    width: 170px;
+    border-color: #535e5b;
+    border-radius: 5px;
+    box-shadow: #131316 1px;
+}
+
+#addempbtn {
+    background: #2d2b46;
+    color: white;
+    height: 40px;
+    padding-top: 7px;
+    font-size: 17px;
+    width: 200px;
+}
+
+.ListeEmploye .liste table {
+    padding-top: 20px;
+    width: 96%;
+    margin-left: 20px;
+    border-collapse: collapse;
+}
+
+.pagination {
+    margin-top: 45px;
+    margin-left: 1020px;
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+    background: var(--color-bk-purple-light);
+    border-radius: 8px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.pagination::ng-deep .ngx-pagination a:hover,
+.ngx-pagination button:hover {
+    background: #d4d4d4;
+    border-radius: 3px;
+    padding-left: 9px;
+    padding-right: 9px;
+    text-decoration: none;
+}
+
+.pagination::ng-deep .ngx-pagination a:focus,
+.ngx-pagination button:focus {
+    outline: none;
+    background: #d4d4d4;
+}
+
+.ListeEmploye .liste table thead th {
+    font-weight: 600;
+    color: var(--color-black);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.ListeEmploye .liste table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ListeEmploye .liste tbody tr {
+    color: var(--color-gray-dark);
+}
+
+.ListeEmploye .liste table tbody td {
+    text-align: center;
+}
+
+.ListeEmploye .liste tbody tr:hover {
+    background: var(--color-light);
+    color: var(--color-black);
+}
+
+.ListeEmploye .liste table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.ListeEmploye .liste td i {
+    padding: 7px;
+    color: var(--color-white);
+    border-radius: 50px;
+}
+
+.ListeEmploye .liste table tbody td:last-child {
+    white-space: nowrap;
+}
+
+.edit {
+    background: rgba(48, 84, 114, 0.932);
+    font-size: 14px;
+    border-radius: 100px;
+    margin-left: 5px;
+    width: 30px;
+}
+
+.eye {
+    background: #ca65a9d8;
+    font-size: 14px;
+    border-radius: 100px;
+}
+
+.info {
+    background: var(--color-bk-blue-light);
+    font-size: 14px;
+    margin-left: 5px;
+    width: 30px;
+    border-radius: 100px;
+}
+
+.fiche {
+    background: #ca65a9d8;
+    font-size: 14px;
+    margin-left: 5px;
+    width: 30px;
+    border-radius: 100px;
+}
+
+.delete {
+    background: #c54552ea;
+    font-size: 14px;
+    border-radius: 100px;
+    margin-left: 5px;
+    width: 30px;
+}

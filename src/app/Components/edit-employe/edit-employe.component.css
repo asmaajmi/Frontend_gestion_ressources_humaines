@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--color-white);
+}
+
+.main1 {
+    position: fixed;
+    width: calc(100% - 300px);
+    min-height: 100vh;
+    left: 300px;
+    background-color: #f5f5f5;
+    overflow-y: scroll;
+}
+
+.titresearch {
+    height: 70px;
+    width: calc(100% -40px);
+    margin: 0 20px 20px 20px;
+    margin-top: 80px;
+    padding-top: 10px;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.titresearch h1 {
+    padding-left: 15px;
+    color: rgba(37, 32, 68, 0.993);
+}
+
+.tables {
+    margin-top: -10px;
+}
+
+
+/*ajouter un client*/
+
+.tables form {
+    width: calc(100% -50px);
+    align-items: self-start;
+    padding: 10px 20px 20px 20px;
+    z-index: 1;
+}
+
+.ajoutemp {
+    height: 600px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: calc(100% -50px);
+    overflow-y: scroll;
+}
+
+.tables table tr td {
+    color: black;
+    padding-left: 75px;
+}
+
+.table1 {
+    width: 100%;
+}
+
+.champ {
+    position: relative;
+    min-width: 370px;
+    max-width: 80%;
+    padding-top: 8px;
+}
+
+#service,
+#db {
+    display: none;
+}
+
+#obligatoire {
+    color: #a81625;
+    font-size: 16px;
+}
+
+.champ input,
+select {
+    width: 85%;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background: #f5f5f5;
+    border: #070002 solid 1px;
+}
+
+.champdip input,
+select {
+    width: 85%;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background: #f5f5f5;
+    border: #070002 solid 1px;
+}
+
+select {
+    color: black;
+}
+
+.champ i {
+    position: absolute;
+    cursor: pointer;
+    right: 78px;
+    top: 10px;
+    padding-top: 8px;
+}
+
+#tel2,
+#tel1,
+#icontel {
+    margin-top: 15px;
+}
+
+.champdip i {
+    position: absolute;
+    cursor: pointer;
+    right: 78px;
+    top: 10px;
+}
+
+.ajoutemp h2 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+#emp {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.infoemp {
+    color: rgba(83, 76, 122, 0.89);
+    font-size: 25px;
+}
+
+.champ #dt {
+    color: var(--color-black);
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(var(--invert0));
+}
+
+.ajoutemp .line1 {
+    width: 175px;
+    font-size: 16px;
+    margin-right: -50px;
+    margin-left: -20px;
+}
+
+.ajoutemp .line2 {
+    width: 210px;
+    margin-left: -38px;
+    font-size: 16px;
+    margin-right: -95px;
+}
+
+#table2 .line2 {
+    width: 210px;
+    margin-left: 2px;
+    font-size: 16px;
+    margin-right: -95px;
+}
+
+.place1 {
+    margin-left: 7px;
+    padding-top: -10px;
+}
+
+.congetext {
+    width: 210px;
+    font-size: 16px;
+    margin-right: -95px;
+}
+
+.nom {
+    margin-left: -500px;
+}
+
+.line {
+    height: 55px;
+}
+
+.add_delete {
+    margin-left: 970px;
+    margin-top: 15px;
+}
+
+
+/**style de boutons**/
+
+.button-82-pushable {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-82-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: rgba(44, 44, 44, 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-annuler-82-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 12px;
+    background: rgba(44, 44, 44, 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-82-edgec {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient( to left, #095f51(340deg 100% 16%) 0%, #32bea6(340deg 100% 32%) 8%, #32bea6(340deg 100% 32%) 92%, #095f51(340deg 100% 16%) 100%);
+}
+
+.button-82-edgea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient( to left, #a81625(340deg 100% 16%) 0%, #ed5564(340deg 100% 32%) 8%, #ed5564(340deg 100% 32%) 92%, #a81625(340deg 100% 16%) 100%);
+}
+
+.button-82-frontc {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: #5bada0e8;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-82-fronta {
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: rgba(194, 87, 87, 0.863);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+#btnc {
+    margin-left: 350px;
+    margin-top: 30px;
+    margin-right: -50px;
+    width: 140px;
+}
+
+#btna {
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.btnconfannuler {
+    display: inline-flex;
+    margin-left: 137px;
+}
+
+@media (min-width: 768px) {
+    .button-82-front {
+        font-size: 1.25rem;
+        padding: 12px 42px;
+    }
+}
+
+.button-82-pushable:hover {
+    filter: brightness(110%);
+}
+
+.button-82-pushable:hover .button-82-front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.button-82-pushable:hover .button-82-shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+
+.button-82-pushable:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.fa-user-plus {
+    font-size: 20px;
+    color: white;
+}
+
+
+/*** style bouton diplome**/
+
+
+/* CSS */
+
+.button-22 {
+    align-items: center;
+    /* appearance: button; */
+    /* background-color: #852747; */
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #7c2441;
+    cursor: pointer;
+    display: flex;
+    font-size: 100%;
+    line-height: 1.15;
+    margin-left: -45px;
+    margin-top: -5px;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    width: 218px;
+    text-decoration: none;
+    /* transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out; */
+}
+
+.button-22:hover {
+    color: #6b1d37;
+}
+
+#linebtn {
+    width: 195px;
+}
+
+#infopro {
+    margin-top: 15px;
+}
+
+#champ1 {
+    margin-left: -669px;
+    margin-top: -1px;
+}
+
+#dir {
+    margin-right: 60px;
+    margin-left: 50px;
+}
+
+.btnannuler {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 280px;
+    height: 50px;
+}

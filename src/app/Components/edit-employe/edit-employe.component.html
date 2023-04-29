@@ -1,0 +1,283 @@
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<!--Ajouter un employé-->
+<app-navbar-sidebar></app-navbar-sidebar>
+<div class="main1">
+    <div class="titresearch">
+        <h1>Modifier un employé</h1>
+    </div>
+    <div class="tables">
+
+        <!-- début le formulaire de création d'employe -->
+        <form #f="ngForm" (ngSubmit)="save(f)">
+            <div class="ajoutemp">
+                <h2 class="infoemp">Informations Personnelles</h2>
+                <table class="table1">
+                    <tr class="line">
+                        <!-- le champ pour l'identifiant de l'employe -->
+                        <td>
+                            <h3 class="line1">Id<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="number" id="id_emp" class="form-control" [(ngModel)]="e.id" name="id" required #id_emp="ngModel" [ngClass]="{'is-invalid':!id_emp.valid && id_emp.touched}">
+                                <label><i class="fas fa-solid fa-id-badge"></i></label>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- le champ pour cin de l'employe -->
+                            <h3 class="line2">CIN<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="text" class="form-control" id="cin_emp" [(ngModel)]="e.cin_emp" name="cin_emp" required #cin_emp="ngModel" [ngClass]="{'is-invalid':!cin_emp.valid && cin_emp.touched}">
+                                <label><i class="fas fa-id-card"></i></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="line">
+                        <td>
+                            <!-- le champ pour nom de l'employe -->
+                            <h3 class="line1">Nom<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="text" class="form-control" [(ngModel)]="e.nom_emp" name="nom_emp" id="nom" required #nom="ngModel" [ngClass]="{'is-invalid':!nom.valid && nom.touched}">
+                                <label id="icone1"><i class="fas fa-user"></i></label>
+                            </div>
+                        </td>
+
+                        <td>
+                            <!-- le champ pour prénom de l'employe -->
+                            <h3 class="line2">Prénom<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="text" class="form-control" [(ngModel)]="e.prenom_emp" name="prenom_emp" id="prenom" required #prenom="ngModel" [ngClass]="{'is-invalid':!prenom.valid && prenom.touched}">
+                                <label><i class="fas fa-user"></i></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="line">
+                        <td>
+                            <!-- le champ pour date de naissance de l'employe -->
+                            <h3 class="line1">Date de Naissance<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="date" class="form-control" [(ngModel)]="e.date_naissance_emp" name="date_naissance_emp" id="dt" required #dt="ngModel" [ngClass]="{'is-invalid':!dt.valid && dt.touched}">
+                            </div>
+                        </td>
+
+                        <td>
+                            <!-- select pour choix d'etat civil de l'employe -->
+                            <h3 class="line2">État Civil<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <select [(ngModel)]="e.etat_civil_emp" name="etat_civil_emp" id="etat_civil" class="form-control" required #etat_civil="ngModel" [ngClass]="{'is-invalid':!etat_civil.valid && etat_civil.touched}">
+									<option value="celibataire">Célibataire</option>
+									<option value="marie">Marié</option>
+									<option value="divorce">Divorcé</option>
+									<option value="veuf">Veuf/Veuve</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="line">
+                        <td>
+                            <!-- champ pour le téléphone 1 de l'employé -->
+                            <h3 class="line1">Téléphone 1<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="text" class="form-control" [(ngModel)]="e.tel1_emp" name="tel1_emp" id="tel1" required #tel1="ngModel" [ngClass]="{'is-invalid':!tel1.valid && tel1.touched}">
+                                <label><i class="fas fa-phone" id="icontel"></i></label>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- champ pour le téléphone 2 de l'employé -->
+                            <h3 class="line2">Téléphone 2</h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="text" class="form-control" [(ngModel)]="e.tel2_emp" name="tel2_emp" id="tel2" required #tel2="ngModel" [ngClass]="{'is-invalid':!tel2.valid && tel2.touched}">
+                                <label><i class="fas fa-phone" id="icontel"></i></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="line">
+                        <td>
+                            <!-- champ pour le mobile 1 de l'employé -->
+                            <h3 class="line1">Mobile 1<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="text" class="form-control" [(ngModel)]="e.mob1_emp" name="mob1_emp" id="mob1" required #mob1="ngModel" [ngClass]="{'is-invalid':!mob1.valid && mob1.touched}">
+                                <label><i class="fas fa-mobile"></i></label>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- champ pour le mobile 2 de l'employé -->
+                            <h3 class="line2">Mobile 2</h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="text" class="form-control" [(ngModel)]="e.mob2_emp" name="mob2_emp" id="mob2" required #mob2="ngModel" [ngClass]="{'is-invalid':!mob2.valid && mob2.touched}">
+                                <label><i class="fas fa-mobile"></i></label>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                </table>
+
+
+                <h2 class="infoemp" id="infopro">Informations Professionnelles</h2>
+                <table id="table2">
+                    <tr class="line">
+                        <td>
+                            <!-- champ de date recrutement  de l'employé -->
+                            <h3 class="line1">Date Recrutement<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="date" class="form-control place1" [(ngModel)]="e.date_recrutement_emp" name="date_recrutement_emp" id="dtrec" required #dtrec="ngModel" [ngClass]="{'is-invalid':!dtrec.valid && dtrec.touched}">
+                            </div>
+                        </td>
+
+                        <td>
+                            <!-- le champ pour le  Seuil congé maladie -->
+                            <h3 class="congetext">Congé maladie<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ conge">
+                                <input type="number" class="form-control" [value]="e.seuil_conge_maladie" [(ngModel)]="e.seuil_conge_maladie" name="seuil_conge_maladie" placeholder="Seuil congé maladie (jours)" id="conge_mal" required #conge_mal="ngModel" [ngClass]="{'is-invalid':!conge_mal.valid && conge_mal.touched}">
+                                <label><i class="fas fa-solid fa-bed"></i></label>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    <tr class="line">
+                        <td>
+                            <!-- le champ de salaire base de l'employé -->
+                            <h3 class="line1">Salaire base<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="number" class="form-control place1" [(ngModel)]="e.salaire_base_emp" name="salaire_base_emp" id="salaire_emp" required #salaire_emp="ngModel" [ngClass]="{'is-invalid':!salaire_emp.valid && salaire_emp.touched}">
+                                <label><i class="fas fa-solid fa-comment-dollar"></i></label>
+                            </div>
+                        </td>
+
+                        <td>
+                            <!-- le champ pour le  Seuil congé annuel-->
+                            <h3 class="congetext">Congé annuel<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ conge">
+                                <input type="number" class="form-control" [(ngModel)]="e.seuil_conge_annuel" name="seuil_conge_annuel" id="conge_annuel" placeholder="Seuil congé annuel (jours)" required #conge_annuel="ngModel" [ngClass]="{'is-invalid':!conge_annuel.valid && conge_annuel.touched}">
+                                <label><i class="fas fa-solid fa-bells"></i></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="line">
+                        <td>
+                            <!-- ici c'est le choix de role pour l'employe est-ce qui est un directeur pour diriger un service ou bien un employe qui travaille dans un service -->
+                            <h3 class="line1">Rôle<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div id="champ">
+                                <label id="dir"><input class="form-control" type="radio" class="form-check-input"  name="role_emp" ngModel value="Directeur" checked>  Directeur</label>
+                                <label id="empl"><input class="form-control" type="radio" class="form-check-input"  name="role_emp" ngModel value="Employe" >  Employé</label>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- le champ pour le  Seuil congé accidentel-->
+                            <h3 class="congetext">Congé accidentel<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ conge">
+                                <input type="number" class="form-control" [(ngModel)]="e.var_seuil_conge_accidentel" name="seuil_conge_accidentel" placeholder="Seuil congé accidentel (jours)" id="conge_acc" required #conge_acc="ngModel" [ngClass]="{'is-invalid':!conge_acc.valid && conge_acc.touched}">
+                                <label><i class="fas fa-solid fa-hospital"></i></label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <h2 class="infoemp" id="infopro">Informations Académidiques</h2>
+                <table id="table2">
+                    <tr class="line" id="iddip">
+                        <td>
+                            <!-- le niveau académique de l'employe -->
+                            <h3 class="line1" id="niveau">Niveau<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <select id="selectniv" [(ngModel)]="e.niveau" name="niveau" class="form-control" id="niveau_emp" required #niveau_emp="ngModel" [ngClass]="{'is-invalid':!niveau_emp.valid && niveau_emp.touched}">
+                                        <option value="sans bac">Sans bac</option>
+                                        <option value="baccalaureat">Baccalauréat</option>
+                                        <option value="technicien">Technicien</option>
+                                        <option value="technicien superieur">Technicien supérieur</option>
+                                        <option value="ingenieur">Ingénieur</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- le champ de nom de l'école d'obtention du diplome -->
+                            <h3 class="line2" id="tdecole">École<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ" id="">
+                                <input type="text" [(ngModel)]="e.ecole" name="ecole" class="form-control" id="ecole" required #ecole="ngModel" [ngClass]="{'is-invalid':!ecole.valid && ecole.touched}">
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!-- la date d'obtention du diplome -->
+                            <h3 class="line1" id="tddate">Date Obtention<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ" id="inputdate">
+                                <input type="date" [(ngModel)]="e.dt_obtention" name="dt_obtention" class="form-control" id="dt_obt_dip" required #dt_obt_dip="ngModel" [ngClass]="{'is-invalid':!dt_obt_dip.valid && dt_obt_dip.touched}">
+
+                            </div>
+                        </td>
+                        <td>
+                            <h3 class="line2" id="profile">Profile image<span id="obligatoire">*</span></h3>
+                        </td>
+                        <td>
+                            <div class="champ">
+                                <input type="file" (change)="fileEvent($event)" name="profile_image" class="form-control form-control-lg" id="image">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="btnconfannuler">
+                    <button class="button-82-pushable" type="submit" id="btnc">
+                            <span class="button-82-shadow"></span>
+                            <!--<span class="button-82-edgec"></span>-->
+                            <span class="button-82-frontc text ">
+                                <span class="fa fa-solid fa-plus"></span>
+                            Modifier
+                            </span>
+                    </button>
+
+                    <a href="" class="btnannuler" id="btna">
+                        <span class="button-annuler-82-shadow"></span>
+                        <span class="button-82-edgea"></span>
+                        <span class="button-82-fronta text ">
+                                <span class="fa fa-solid fa-ban"></span> Annuler
+                        </span>
+                    </a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
